@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'middleware',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.ProfilerMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -124,4 +126,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+PROFILER = {
+    'activate': True,
+    'sort': 'time',
+    'count': '100' ,
+    'output': ['console'],
+    'file_location': 'profile.txt',
+    'trigger': 'all'
+}
 
